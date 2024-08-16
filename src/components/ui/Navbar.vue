@@ -2,7 +2,9 @@
   <div class="navbar p-8 flex justify-between items-center border-b-[1px] border-zinc-300 relative">
     <!-- Display screen -->
     <div class="left-0 hidden md:flex items-center gap-14">
-      <RouterLink to="/" class="kanit-medium">Aktiv-Fits</RouterLink>
+      <RouterLink to="/" class="kanit-medium">
+        <img src="/src/assets/logo/brand.png" class="h-10" alt="Aktiv-fits">
+      </RouterLink>
       <div class="items space-x-5 kanit-thin">
         <RouterLink
           active-class="active"
@@ -18,9 +20,10 @@
 
     <div class="hidden md:block right space-x-2 relative">
       <button v-if="!currentUser" @click="signInWithGoogle"
-        class="rounded-md py-1.5 px-4 border-[1px] hover:bg-zinc-600 hover:text-white transition-all duration-300"
+        class="flex gap-2 items-center rounded-md py-1.5 px-4 border-[1px] hover:bg-zinc-600 hover:text-white transition-all duration-300"
       >
-        Sign in
+      <img src="/src/assets/icons/google.svg" alt="Aktiv-Fits" class="h-6" />
+        Sign in 
       </button>
       <div v-else class="relative">
         <button @click="toggleDropdown" class="rounded-full bg-gray-200 text-black p-2">
@@ -36,7 +39,7 @@
 
     <!-- Mobile screen -->
     <div class="block md:hidden">
-      <RouterLink to="/" class="">Aktiv-Fits</RouterLink>
+      <img src="/src/assets/logo/brand.png" class="h-10" alt="Aktiv-fits">
     </div>
     <div class="block md:hidden">
       <button @click="toggleMenu" class="p-2">
@@ -51,10 +54,11 @@
 
     <div
       v-if="show"
-      class="kanit-extrabold left-0 top-16 bg-transparent backdrop-blur-[2px] w-full dropdown absolute h-screen p-3 z-50 space-y-3"
+      class="kanit-extrabold left-0 top-20 bg-transparent backdrop-blur-[20px] w-full dropdown absolute h-screen p-3 z-50 space-y-3"
     >
       <RouterLink
         class="bg-transparent item flex flex-col text-5xl"
+        @click="toggleMenu"
         v-for="item in navItems"
         :to="item.path"
         :key="item.index"
@@ -63,9 +67,12 @@
       </RouterLink>
 
       <!-- Display user info or sign-in button on mobile -->
-      <div v-if="!currentUser">
-        <Button @click="signInWithGoogle" name="Sign in"/>
-      </div>
+      <button v-if="!currentUser" @click="signInWithGoogle"
+        class="flex gap-2 items-center rounded-md py-1.5 px-4 border-[1px] hover:bg-zinc-600 hover:text-white transition-all duration-300"
+      >
+      <img src="/src/assets/icons/google.svg" alt="Aktiv-Fits" class="h-6" />
+        Sign in 
+      </button>
       <div v-else class="flex flex-col items-center">
         <p class="text-lg mb-2 kanit-thin">{{ currentUser.displayName }}</p>
         <button @click="signOut" class="w-full py-2 px-4 bg-red-500 text-white rounded">

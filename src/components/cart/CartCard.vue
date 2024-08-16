@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white p-4 rounded shadow-md flex flex-col items-start kanit-thin sm:flex-row sm:items-center sm:justify-between">
       <div class="flex flex-col sm:flex-row sm:items-center gap-4">
-        <img :src="item.image" :alt="item.name" class="w-16 h-16 object-cover rounded self-center sm:self-start" />
+        <img :src="item.imgUrl" :alt="item.name" class="w-[18rem] h-[18rem] object-cover rounded self-center sm:self-start" />
         <div>
           <h2 class="text-2xl kanit-extrabold">{{ item.name }}</h2>
           <p><span class="kanit-medium">Size:</span> {{ item.size }}</p>

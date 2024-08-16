@@ -217,8 +217,9 @@ const submitOrder = async () => {
   if (!phoneNumberError.value) {
     try {
       isLoading.value = true; // Start loading
-      // Add a new order to the "orders" collection
-      await addDoc(collection(db, "orders"), {
+
+      // Prepare order data
+      const orderData = {
         email: email.value,
         newsletter: newsletter.value,
         firstName: firstName.value,
@@ -229,13 +230,21 @@ const submitOrder = async () => {
         phoneNumber: phoneNumber.value,
         paymentMethod: paymentMethod.value,
         totalAmount: totalAmountWithShipping.value,
-        timestamp: new Date()  // Optional: add a timestamp
-      });
+        timestamp: new Date(), // Optional: add a timestamp
+        items: cartItems.value.map(item => ({
+          id:item.id,
+          name: item.name,
+          size: item.size,
+          price: item.price,
+          quantity: item.quantity,
+          imageUrl: item.imgUrl // Include image URL if available
+        }))
+      };
 
-      // You can add more actions here, like redirecting to a thank you page
-      isLoading.value = false; // end loading
+      // Add a new order to the "orders" collection
+      await addDoc(collection(db, "orders"), orderData);
 
-      // Clear the form fields
+      // Clear the form fields and cart
       email.value = '';
       newsletter.value = false;
       firstName.value = '';
@@ -245,19 +254,21 @@ const submitOrder = async () => {
       postalCode.value = '';
       phoneNumber.value = '';
 
-      // Clear the cart store and localStorage
       cartStore.clearCart(); // Assuming there's a method in your store to clear the cart
 
-      alert('Order successfully submitted!. Please check your email.');
+      alert('Order successfully submitted! Please check your email.');
       router.push('/thank-you');
 
     } catch (e) {
       console.error("Error adding document: ", e);
+    } finally {
+      isLoading.value = false; // End loading
     }
   } else {
     console.error('Invalid phone number');
   }
 };
+
 
 </script>
 

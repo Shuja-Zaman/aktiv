@@ -32,7 +32,7 @@
         </div>
         
         <!-- Quantity Selector -->
-        <div class="flex flex-row items-center gap-3">
+        <div class="flex flex-row items-center gap-3 mt-2">
           <label for="quantity" class=" mb-2 ">Quantity:</label>
           <input
             id="quantity"
@@ -102,7 +102,8 @@ const addToCart = () => {
   message.value = '';
 
   const productToAdd = {
-    id: product.value.id,
+    id: productId,
+    imgUrl:product.value.imageUrl,
     name: product.value.name,
     price: product.value.price,
     size: selectedSize.value,

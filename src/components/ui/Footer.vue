@@ -4,7 +4,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Logo & Description -->
           <div class="flex flex-col items-center md:items-start">
-            <img src="" alt="Aktiv-Fits" class="w-32 mb-4" />
+            <img src="/src/assets/logo/image.png" alt="Aktiv-Fits" class="w-32 mb-4" />
             <p class="text-gray-400 text-sm">
               The best place to find premium clothing. Shop now and stay active!
             </p>

@@ -5,9 +5,9 @@
       </div>
       <div class="p-4 flex flex-col justify-around h-48">
         <div>
-          <h3 class="text-xl capitalize">{{ props.name }}</h3>
+          <h3 class="text-xl capitalize kanit-medium">{{ props.name }}</h3>
           <p>Rs. {{ props.price }}</p>
-            <div class="flex gap-2" v-if="sizeArray && sizeArray.length">
+            <div class="flex gap-2 my-2" v-if="sizeArray && sizeArray.length">
               <p class="border-[1px] py-1 px-2 rounded-sm bg-zinc-200" v-for="size in sizeArray" :key="size">{{ size }}</p>
             </div>
         </div>

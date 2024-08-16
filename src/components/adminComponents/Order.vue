@@ -22,7 +22,16 @@
           <span class="kanit-medium">City:</span> {{ order.city }}<br>
           <span class="kanit-medium">Postal Code:</span> {{ order.postalCode }}<br>
           <span class="kanit-medium">Payment Method:</span> {{ order.paymentMethod }}<br>
-          <span class="kanit-medium">Total Amount:</span> Rs. {{ order.totalAmount}}
+          <span class="kanit-medium">Total Amount:</span> Rs. {{ order.totalAmount }}
+        </div>
+        <!-- Items List -->
+        <div class="items-list">
+          <h3 class="items-title kanit-medium">Items Ordered:</h3>
+          <ul>
+            <li v-for="(item, index) in order.items" :key="index" class="item">
+              {{ item.name }} ({{ item.quantity }} x Rs. {{ item.price }}) , {{ item.size }}
+            </li>
+          </ul>
         </div>
         <!-- Delete Button -->
         <button @click="deleteOrder(order.id)" class="delete-button bg-red-500 text-white py-2 px-4 rounded mt-3">Delete Order</button>
@@ -69,72 +78,20 @@ const formatDate = (timestamp) => {
 onMounted(fetchOrders);
 </script>
 
+
 <style scoped>
-.orders-container {
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 100vh; /* Make the container full height */
-  display: flex;
-  flex-direction: column;
+.items-list {
+  margin-top: 10px;
 }
 
-.title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.loading, .error, .no-orders {
-  text-align: center;
+.items-title {
   font-size: 1.2rem;
-  color: #666;
+  margin-bottom: 5px;
 }
 
-.orders-list {
-  overflow-y: auto; /* Enable vertical scrolling */
-  flex: 1; /* Allow the list to grow and fill the available space */
-}
-
-.order-card {
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.order-header {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-}
-
-.order-details {
+.item {
   font-size: 1rem;
-  color: #333;
-}
-
-.order-details span {
-  font-weight: bold;
-}
-
-/* Delete Button Styling */
-.delete-button {
-  background-color: #f56565;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.delete-button:hover {
-  background-color: #e53e3e;
+  color: #555;
+  margin-bottom: 5px;
 }
 </style>
