@@ -3,9 +3,9 @@
     <!-- main section -->
     <div class="h-[70vh] md:h-[85vh] flex items-center main p-7">
       <div class="w-full">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl kanit-extrabold lg:text-left text-center">Empower Your <br/> Every Move<span class="italic font-light text-xl block mt-2 md:mt-4">with aktiv-fits</span>
+        <h1 class=" text-4xl md:text-5xl lg:text-6xl kanit-extrabold lg:text-left text-center bg-clip-text text-transparent bg-gradient-to-br from-lime-400 to-lime-800">Empower Your <br/> Every Move
+          <span class="text-zinc-600 italic font-light text-xl block mt-2 md:mt-4">with aktiv-fits</span>
         </h1>
-
         <RouterLink to="/shop" class="text-center block lg:inline">
           <Button name="Shop now" class=" w-max my-4 md:my-5 w-full md:w-max text-lg md:text-xl" />
         </RouterLink>

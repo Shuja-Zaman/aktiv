@@ -11,19 +11,19 @@
           </div>
   
           <!-- Navigation Links -->
-          <div class="flex flex-col items-center md:items-start">
+          <div class="flex flex-col sm:items-start md:items-center md:items-start">
             <ul class="space-y-2">
               <li>
                 <RouterLink to="/shop" class="hover:text-gray-300">Shop</RouterLink>
               </li>
               <li>
-                <RouterLink to="/about" class="hover:text-gray-300">About Us</RouterLink>
+                <RouterLink to="/" class="hover:text-gray-300">About Us</RouterLink>
               </li>
               <li>
                 <RouterLink to="/contact" class="hover:text-gray-300">Contact Us</RouterLink>
               </li>
               <li>
-                <RouterLink to="/privacy" class="hover:text-gray-300">Privacy Policy</RouterLink>
+                <RouterLink to="/" class="hover:text-gray-300">Privacy Policy</RouterLink>
               </li>
             </ul>
           </div>
@@ -35,7 +35,7 @@
               Email: <a href="mailto:aktiv.store.fits@gmail.com" class="hover:text-gray-300">aktiv.store.fits@gmail.com</a>
             </p>
             <p class="text-gray-400 text-sm mb-2">
-              Phone: <a href="tel:+03390252521" class="hover:text-gray-300">+03390252521</a>
+              Phone/Whatsapp <a href="tel:+03390252521" class="hover:text-gray-300">+03390252521</a>
             </p>
             <div class="flex space-x-4 mt-4 items-center">
               <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-gray-300">

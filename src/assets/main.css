@@ -18,11 +18,11 @@
     }
 
     #nprogress .bar {
-      @apply bg-zinc-700 h-[2px] w-full fixed left-0 top-0 z-50; /* Tailwind's utility class for black background */
+      @apply bg-slate-100 h-[2px] w-full fixed left-0 top-0 z-50; /* Tailwind's utility class for black background */
     }
   
     #nprogress .peg {
-      @apply shadow-lg shadow-zinc-500; /* Tailwind's utility class for shadow */
+      @apply shadow-lg shadow-slate-100; /* Tailwind's utility class for shadow */
     }
 }
 

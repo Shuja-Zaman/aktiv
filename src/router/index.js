@@ -39,7 +39,12 @@ const router = createRouter({
     {
       path:'/user/admin',
       name:'Admin',
-      component: ()=>import('../views/admin/AdminHome.vue')
+      component: ()=>import('../views/admin/AdminHome.vue'),
+    },
+    {
+      path: '/:pathMatch(.*)*', // Catch-all route
+      name:"Not Found",
+      component:()=>import('../views/404View.vue')
     }
   ]
 })
@@ -52,4 +57,4 @@ router.afterEach(() => {
   NProgress.done(); // Complete the progress bar after route change
 });
 
-export default router
+export default router;
